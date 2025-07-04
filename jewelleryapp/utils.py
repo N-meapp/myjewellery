@@ -25,6 +25,8 @@ from twilio.rest import Client
 import os
 from dotenv import load_dotenv
 from django.conf import settings
+from allauth.socialaccount.models import SocialApp
+from django.contrib.sites.models import Site
 
 load_dotenv()
 
@@ -50,3 +52,15 @@ def send_whatsapp_message(to, body):
         body=body
     )
     return message.sid
+
+
+def create_google_social_app():
+    if not SocialApp.objects.filter(provider='google').exists():
+        site = Site.objects.get_current()
+        google_app = SocialApp.objects.create(
+            provider='google',
+            name='Google Login',
+            client_id=settings.GOOGLE_CLIENT_ID,
+            secret=settings.GOOGLE_CLIENT_SECRET
+        )
+        google_app.sites.add(site)

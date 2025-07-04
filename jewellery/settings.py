@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,9 +48,32 @@ INSTALLED_APPS = [
 
     "cloudinary",
     "cloudinary_storage", 
+
+    'dj_rest_auth.registration',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
    
 
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+REST_USE_JWT = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+
+
+
 AUTH_USER_MODEL = 'jewelleryapp.Register'
 
 CORS_ALLOW_CREDENTIALS = True
@@ -69,7 +93,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+    'allauth.account.middleware.AccountMiddleware',
   
 ]
 SITE_ID = 1
@@ -202,3 +226,11 @@ TWILIO_ACCOUNT_SID = config("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = config("TWILIO_AUTH_TOKEN")
 TWILIO_WHATSAPP_NUMBER = config("TWILIO_WHATSAPP_NUMBER")
 ADMIN_WHATSAPP_NUMBER = config("ADMIN_WHATSAPP_NUMBER")
+
+
+
+from decouple import config
+
+GOOGLE_SECRET = config("GOOGLE_SECRET")
+GOOGLE_CLIENT_ID = config("GOOGLE_CLIENT_ID")
+GOOGLE_CLIENT_SECRET = config("GOOGLE_CLIENT_SECRET")
