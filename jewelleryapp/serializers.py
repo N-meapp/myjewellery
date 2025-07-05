@@ -6,6 +6,7 @@ from decimal import Decimal, ROUND_HALF_UP
 # from rest_framework import generics
 import json
 import cloudinary
+from dj_rest_auth.registration.serializers import SocialLoginSerializer
 
 class MaterialSerializer(serializers.ModelSerializer):
     class Meta:
@@ -1458,3 +1459,8 @@ class AdminLoginSerializer(serializers.Serializer):
 
         data['admin'] = admin
         return data
+
+
+class GoogleSocialLoginSerializer(SocialLoginSerializer):
+    access_token = None
+    id_token = serializers.CharField(required=True, allow_blank=False)

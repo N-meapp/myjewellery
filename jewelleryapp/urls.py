@@ -23,18 +23,17 @@ urlpatterns = [
     path('api/categories/<int:pk>/', CategoryDetailAPIView.as_view()),
     path('token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
 
-    # Metal
+
     path('api/metals/', MetalListCreateAPIView.as_view()),
     path('api/metals/<int:pk>/', MetalDetailAPIView.as_view()),
 
-    # Stone
+   
     path('api/gemstone/', StoneListCreateAPIView.as_view()),
     path('api/gemstone/<int:pk>/', StoneDetailAPIView.as_view()),
 
     path('api/materials/', MaterialListCreateAPIView.as_view()),
     path('api/materials/<int:pk>/', MaterialDetailAPIView.as_view()),
 
-    #product
     path('api/products/', ProductListCreateAPIView.as_view(), name='product-list-create'),
     path('api/products/<int:pk>/', ProductDetailAPIView.as_view(), name='product-detail'),
 

@@ -296,7 +296,7 @@ class RegisterManager(BaseUserManager):
 class Register(AbstractBaseUser, PermissionsMixin):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     username = models.CharField(max_length=150, unique=True)
-    mobile = models.BigIntegerField(unique=True)
+    mobile = models.CharField(max_length=15, null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

@@ -234,3 +234,15 @@ from decouple import config
 GOOGLE_SECRET = config("GOOGLE_SECRET")
 GOOGLE_CLIENT_ID = config("GOOGLE_CLIENT_ID")
 GOOGLE_CLIENT_SECRET = config("GOOGLE_CLIENT_SECRET")
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': '372637452953-ipidsqfplsd4iibr4o2r1llg8ivn82d7.apps.googleusercontent.com',
+            'secret': 'GOCSPX-abc123yourrealclientsecret456xyz',
+            'key': ''
+        }
+    }
+}
+

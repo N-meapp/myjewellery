@@ -1603,5 +1603,13 @@ class AdminLoginAPIView(APIView):
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from dj_rest_auth.registration.views import SocialLoginView
 
+
+
+
+# yourapp/views.py
+from dj_rest_auth.registration.views import SocialLoginView
+from .serializers import GoogleSocialLoginSerializer
+
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
+    serializer_class = GoogleSocialLoginSerializer
