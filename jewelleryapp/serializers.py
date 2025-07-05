@@ -1461,6 +1461,10 @@ class AdminLoginSerializer(serializers.Serializer):
         return data
 
 
+# class GoogleSocialLoginSerializer(SocialLoginSerializer):
+#     access_token = None
+#     id_token = serializers.CharField(required=True, allow_blank=False)
+
 class GoogleSocialLoginSerializer(SocialLoginSerializer):
-    access_token = None
-    id_token = serializers.CharField(required=True, allow_blank=False)
+    access_token = serializers.CharField(required=True)
+    id_token = None  # 

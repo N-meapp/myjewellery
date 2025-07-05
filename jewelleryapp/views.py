@@ -1610,6 +1610,9 @@ from dj_rest_auth.registration.views import SocialLoginView
 from dj_rest_auth.registration.views import SocialLoginView
 from .serializers import GoogleSocialLoginSerializer
 
+# class GoogleLogin(SocialLoginView):
+#     adapter_class = GoogleOAuth2Adapter
+#     serializer_class = GoogleSocialLoginSerializer
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     serializer_class = GoogleSocialLoginSerializer
