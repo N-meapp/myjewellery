@@ -239,10 +239,12 @@ GOOGLE_CLIENT_SECRET = config("GOOGLE_CLIENT_SECRET")
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '372637452953-ipidsqfplsd4iibr4o2r1llg8ivn82d7.apps.googleusercontent.com',
-            'secret': 'GOCSPX-abc123yourrealclientsecret456xyz',
+            'client_id': 'YOUR_CLIENT_ID',
+            'secret': 'YOUR_CLIENT_SECRET',
             'key': ''
-        }
+        },
+        'AUTH_PARAMS': {
+            'access_type': 'offline',  # Enables refresh_token
+        },
     }
 }
-

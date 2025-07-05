@@ -1466,5 +1466,10 @@ class AdminLoginSerializer(serializers.Serializer):
 #     id_token = serializers.CharField(required=True, allow_blank=False)
 
 class GoogleSocialLoginSerializer(SocialLoginSerializer):
-    access_token = serializers.CharField(required=True)
-    id_token = None  # 
+    code = serializers.CharField(required=True)
+    redirect_uri = serializers.CharField(required=True)
+
+    def validate(self, attrs):
+        self.code = attrs.get('code')
+        self.redirect_uri = attrs.get('redirect_uri')
+        return super().validate(attrs)

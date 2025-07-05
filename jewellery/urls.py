@@ -19,7 +19,7 @@ from django.urls import path,include
 # from jewelleryapp.views import GoogleLogin, GoogleLoginCallback, LoginPage
 from django.conf import settings 
 from django.conf.urls.static import static
-
+from jewelleryapp.views import*
 urlpatterns = [
     path('admin/', admin.site.urls),
    
@@ -33,8 +33,8 @@ urlpatterns = [
     #     GoogleLoginCallback.as_view(),
     #     name="google_login_callback",
     # ),
+    path('dj-rest-auth/google/', GoogleLogin.as_view(), name='google_login'),
     path('dj-rest-auth/', include('dj_rest_auth.urls')),
-    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')),  # 👈 important
-    path('dj-rest-auth/social/', include('allauth.socialaccount.urls')), 
+    path('dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')), 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

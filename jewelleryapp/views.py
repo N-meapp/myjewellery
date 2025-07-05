@@ -1613,6 +1613,15 @@ from .serializers import GoogleSocialLoginSerializer
 # class GoogleLogin(SocialLoginView):
 #     adapter_class = GoogleOAuth2Adapter
 #     serializer_class = GoogleSocialLoginSerializer
+# class GoogleLogin(SocialLoginView):
+#     adapter_class = GoogleOAuth2Adapter
+#     serializer_class = GoogleSocialLoginSerializer
+
+
+# class GoogleLogin(SocialLoginView):
+#     adapter_class = GoogleOAuth2Adapter
+#     serializer_class = GoogleSocialLoginSerializer
+
 class GoogleLogin(SocialLoginView):
     adapter_class = GoogleOAuth2Adapter
     serializer_class = GoogleSocialLoginSerializer
