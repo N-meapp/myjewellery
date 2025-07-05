@@ -29,5 +29,4 @@ class JewelleryappConfig(AppConfig):
     name = 'jewelleryapp'
 
     def ready(self):
-        import jewelleryapp.signals  # ✅ move logic into a signal
-
+        import jewelleryapp.signals  # ✅ This ensures your signals are registered on startup

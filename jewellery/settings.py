@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'rest_framework_simplejwt.token_blacklist',
+    
    
 
 ]
@@ -248,4 +249,8 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'offline',  # Enables refresh_token
         },
     }
+}
+REST_USE_JWT = True
+REST_AUTH_SERIALIZERS = {
+    'JWT_SERIALIZER': 'jelleryapp.serializers.CustomJWTSerializer',
 }
